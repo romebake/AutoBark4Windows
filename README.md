@@ -6,14 +6,11 @@
 
 [Bark](https://github.com/Finb/Bark) 的第三方 Windows 开源工具，可以通过快捷键将剪切板内容自动发送到你的 iPhone 上。
 
+![Main Form](https://i.imgur.com/j47CxXk.png "Main Form")
+
 ## 说明
-* 需要管理员权限运行来控制软件开机启动
-* 请在推送前填入你的设备 Bark 推送链接（支持自己部署的服务器链接）
 * [下载软件](https://github.com/romebake/AutoBark4Windows/releases)
+* 请在推送前填入你的设备 Bark 推送链接（支持自己部署的服务器链接）
+* 若下载后运行没反应，请按下图方式解除文件锁定后再试
 
-## 界面展示
-![Main Form](https://i.imgur.com/j47CxXk.png)
-
-![Notify](https://i.imgur.com/CiUhNNT.png)
-
-![Menu](https://i.imgur.com/bEk52MH.png)
+![Unlock](https://i.imgur.com/GQkmcJu.png "Unlock")
