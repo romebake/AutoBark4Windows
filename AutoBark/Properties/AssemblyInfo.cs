@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Romebake")]
 [assembly: AssemblyProduct("AutoBark")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCopyright("Copyright © 2019 Romebake")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

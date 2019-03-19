@@ -273,36 +273,28 @@ namespace AutoBark
 
             if (bootChecked == Properties.Settings.Default.boot) return;
 
-            try
+            if (bootChecked)
             {
-                if (bootChecked)
-                {
-                    RegistryKey R_local = Registry.LocalMachine;
-                    RegistryKey R_run = R_local.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
-                    R_run.SetValue("AutoBark", Application.ExecutablePath);
-                    R_run.Close();
-                    R_local.Close();
-                }
-                else
-                {
-                    RegistryKey R_local = Registry.LocalMachine;
-                    RegistryKey R_run = R_local.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
-                    R_run.DeleteValue("AutoBark", false);
-                    R_run.Close();
-                    R_local.Close();
-                }
-
-                this.BootToolStripMenuItem.Checked = bootChecked;
-
-                // Save BootChecked Config
-                Properties.Settings.Default.boot = bootChecked;
-                Properties.Settings.Default.Save();
+                RegistryKey R_local = Registry.CurrentUser;
+                RegistryKey R_run = R_local.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
+                R_run.SetValue("AutoBark", Application.ExecutablePath);
+                R_run.Close();
+                R_local.Close();
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("您需要管理员权限, 请右键以管理员身份运行此程序", "提示");
-                this.bootCheckBox.Checked = !bootChecked;
+                RegistryKey R_local = Registry.CurrentUser;
+                RegistryKey R_run = R_local.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
+                R_run.DeleteValue("AutoBark", false);
+                R_run.Close();
+                R_local.Close();
             }
+
+            this.BootToolStripMenuItem.Checked = bootChecked;
+
+            // Save BootChecked Config
+            Properties.Settings.Default.boot = bootChecked;
+            Properties.Settings.Default.Save();
         }
 
         private void BootToolStripMenuItem_Click(object sender, EventArgs e)
