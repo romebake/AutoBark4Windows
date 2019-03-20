@@ -126,6 +126,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Release\Newtonsoft.Json.dll" />
     <Content Include="Resources\AutoBark.ico" />
   </ItemGroup>
   <ItemGroup>
