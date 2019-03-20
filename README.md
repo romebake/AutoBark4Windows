@@ -10,6 +10,7 @@
 
 ## 说明
 * [下载软件](https://github.com/romebake/AutoBark4Windows/releases)
+* 如果您使用的不是 Windows 10, 请确保已安装 .NET Framework 4.6.1
 * 请在推送前填入你的设备 Bark 推送链接（支持自己部署的服务器链接）
 * 若下载后运行没反应，请按下图方式解除文件锁定后再试
 
