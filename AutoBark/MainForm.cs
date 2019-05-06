@@ -30,6 +30,14 @@ namespace AutoBark
             hotkeyDict.Add("Shift + C", (int)Keys.Shift);
             hotkeyDict.Add("Alt + C", (int)Keys.Alt);
 
+            // Upgrade Config
+            if (Properties.Settings.Default.UpdateSettings)
+            {
+                Properties.Settings.Default.Upgrade();
+                Properties.Settings.Default.UpdateSettings = false;
+                Properties.Settings.Default.Save();
+            }
+
             // Set HotkeyComboBox Items
             foreach (string key in hotkeyDict.Keys)
             {
