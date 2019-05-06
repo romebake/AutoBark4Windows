@@ -85,7 +85,10 @@ namespace AutoBark
 
         private void AutoBarkNotifyIcon_MouseClick(object sender, MouseEventArgs e)
         {
-            this.NotifyIconMenu.Show(Cursor.Position);
+            if (e.Button == MouseButtons.Right)
+            {
+                this.NotifyIconMenu.Show(Cursor.Position);
+            }
         }
 
         private void AutoBarkNotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
