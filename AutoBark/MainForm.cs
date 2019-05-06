@@ -71,8 +71,15 @@ namespace AutoBark
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
-            this.WindowState = FormWindowState.Minimized;
+            if (e.CloseReason.ToString() != "UserClosing")
+            {
+                this.ExitProgram();
+            }
+            else
+            {
+                e.Cancel = true;
+                this.WindowState = FormWindowState.Minimized;
+            }
         }
 
         private void MainForm_SizeChanged(object sender, EventArgs e)
