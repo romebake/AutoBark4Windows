@@ -207,18 +207,26 @@ namespace AutoBark
             }
         }
 
+        private bool keyDownHandled = false;// 记录按键是否处理过，避免长按重复触发
         private void hook_Start()
         {
             hook.KeyDownEvent += new KeyEventHandler(hook_KeyDown);
+            hook.KeyUpEvent += new KeyEventHandler(hook_KeyUp);
             hook.Start();
         }
 
         private void hook_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyValue == (int)Keys.C && (int)Control.ModifierKeys == hotkeyDict[this.hotkeyComboBox.Text])
+            if (e.KeyValue == (int)Keys.C && (int)Control.ModifierKeys == hotkeyDict[this.hotkeyComboBox.Text] && keyDownHandled == false)
             {
+                keyDownHandled = true;
                 this.SendBarkMsg();
             }
+        }
+
+        private void hook_KeyUp(object sender, KeyEventArgs e)
+        {
+            keyDownHandled = false;
         }
 
         private void hotkeyCheckBox_CheckedChanged(object sender, EventArgs e)
